@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- DE SERIE -->
+    <string name="app_name">Probando</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Action Bar -->
+    <string name="action_camera">Camera</string>
+    <string name="action_search_str">Search</string>
+    <string name="action_call">Call</string>
+    <string name="action_checkout">Checkout</string>
+    <string name="action_about">About...</string>
+
+    <!-- Seccion ID -->
+    <string name="button_ID">View ID</string>
+    <string name="title_ID">Section ID</string>
+    <string name="info_ID">ID: UNDEFINED</string>
+
+    <!-- Seccion Settings -->
+    <string name="title_SETTINGS">Section Settings</string>
+
+    <!-- Seccion About -->
+    <string name="title_ABOUT">Section About the Device</string>
+    <string name="tv_EMPTY">--</string>
+    <string name="tv_ID">ID</string>
+    <string name="tv_USE_MAIL_GOOGLE">Google Account</string>
+
+</resources>
