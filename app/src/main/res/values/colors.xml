@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Verde_EnfilaiTalla">#BFF6A9</color>
+    <color name="MoradoCardenal_EnfilaiTalla">#880062</color>
+    <color name="Azul_LogoGoogle">#1469EB</color>
+    <color name="Rojo_LogoGoogle">#D8432E</color>
+    <color name="Amarillo_LogoGoogle">#FFB801</color>
+    <color name="Verde_LogoGoogle">#019D5A</color>
+    <color name="Verde_LogoAndroid">#90BD4E</color>
+    <color name="Azul_SafetyTest">#00AEEF</color>
+</resources>

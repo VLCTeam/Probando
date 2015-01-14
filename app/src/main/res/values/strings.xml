@@ -2,7 +2,7 @@
 <resources>
 
     <!-- DE SERIE -->
-    <string name="app_name">Probando</string>
+    <string name="app_name">SafetyTest</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
@@ -13,10 +13,9 @@
     <string name="action_checkout">Checkout</string>
     <string name="action_about">About...</string>
 
-    <!-- Seccion ID -->
-    <string name="button_ID">View ID</string>
-    <string name="title_ID">Section ID</string>
-    <string name="info_ID">ID: UNDEFINED</string>
+    <!-- Seccion MAIN -->
+    <string name="tv_title">SafetyTest</string>
+    <string name="tv_Saludo">APP For Private Testing</string>
 
     <!-- Seccion Settings -->
     <string name="title_SETTINGS">Section Settings</string>
@@ -26,5 +25,7 @@
     <string name="tv_EMPTY">--</string>
     <string name="tv_ID">ID</string>
     <string name="tv_USE_MAIL_GOOGLE">Google Account</string>
-
+    <string name="tv_Version_Android">Android Version</string>
+    <string name="error_Version_Android">Error - Unknown</string>
+    <string name="bt_Mostrar_Datos">View Data</string>
 </resources>

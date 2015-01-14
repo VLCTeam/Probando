@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- DE SERIE -->
-    <string name="app_name">Probando</string>
+    <string name="app_name">SafetyTest</string>
     <string name="hello_world">Hola Mundo!</string>
     <string name="action_settings">Opciones</string>
 
@@ -12,17 +13,19 @@
     <string name="action_checkout">Echa Un Vistazo</string>
     <string name="action_about">Acerca de...</string>
 
-    <!-- Seccion ID -->
-    <string name="button_ID">Ver ID</string>
-    <string name="title_ID">Seccion ID</string>
-    <string name="info_ID">ID: INDEFINIDO</string>
+    <!-- Seccion MAIN -->
+    <string name="tv_title">SafetyTest</string>
+    <string name="tv_Saludo">APP Para Pruebas Privadas</string>
+
     <!-- Seccion Settings -->
-    <string name="title_SETTINGS">Seccion Opciones</string>
+    <string name="title_SETTINGS">Sección Opciones</string>
 
     <!-- Seccion About -->
-    <string name="title_ABOUT">Seccion Acerca del Dispositivo</string>
+    <string name="title_ABOUT">Sección Acerca del Dispositivo</string>
     <string name="tv_EMPTY">--</string>
     <string name="tv_ID">ID</string>
     <string name="tv_USE_MAIL_GOOGLE">Cuenta de Google</string>
-
+    <string name="tv_Version_Android">Versión Android</string>
+    <string name="error_Version_Android">Error - Desconocida</string>
+    <string name="bt_Mostrar_Datos">Ver Datos</string>
 </resources>

@@ -1,16 +1,10 @@
 package es.binarycode.probando;
 
 import android.app.Activity;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,25 +18,21 @@ public class MainActivity extends Activity {
         /**
          * Declaracion de Objetos
          */
-        final TextView tv_resultado = (TextView)findViewById(R.id.tv_resultado);
-        Button btn_ID = (Button)findViewById(R.id.btn_ID);
+        final TextView tv_Saludo = (TextView)findViewById(R.id.tv_Saludo);
+        final TextView tv_Version = (TextView)findViewById(R.id.tv_Version);
+
         /**
          * Variables
          */
-        final String AndroidId = Settings.Secure.getString(getContentResolver(),
-                Settings.Secure.ANDROID_ID);
-        /**
-         * Funciones de botones
-         */
-        btn_ID.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tv_resultado.setText("ID: "+AndroidId);
-            }
-        });
+        //int versionCode = BuildConfig.VERSION_CODE; //Codigo de Version de Android Studio
+        String versionName = BuildConfig.VERSION_NAME; //Version de Play Store
+
         /**
          * Otras Funciones
          */
+         tv_Version.setText(versionName);
+
+
 
     }
 
@@ -54,12 +44,12 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.action_bar, menu);
 
         //Configuración de la función de búsqueda
-        SearchManager searchManager =
+        /*SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView =
                 (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
+                searchManager.getSearchableInfo(getComponentName()));*/
         return super.onCreateOptionsMenu(menu);
     }
 
