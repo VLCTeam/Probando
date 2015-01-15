@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -77,14 +76,6 @@ public class MainActivity extends Activity {
             toast1.show();*/
             Intent i = new Intent(this, AboutActivity.class );
             startActivity(i);
-                return true;
-            } else if (id == R.id.action_camera) {
-            Toast toast1 =Toast.makeText(getApplicationContext(),"Camara", Toast.LENGTH_SHORT);
-            toast1.show();
-                return true;
-            } else if (id == R.id.action_checkout) {
-            Toast toast1 =Toast.makeText(getApplicationContext(),"Checkout", Toast.LENGTH_SHORT);
-            toast1.show();
                 return true;
             }
 
