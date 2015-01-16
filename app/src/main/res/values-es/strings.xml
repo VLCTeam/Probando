@@ -12,6 +12,7 @@
     <string name="action_call">Llamadas</string>
     <string name="action_checkout">Echa Un Vistazo</string>
     <string name="action_about">Acerca de...</string>
+    <string name="action_encode">Codificador</string>
 
     <!-- Seccion MAIN -->
     <string name="tv_title">SafetyTest</string>
@@ -28,4 +29,12 @@
     <string name="tv_Version_Android">Versión Android</string>
     <string name="error_Version_Android">Error - Desconocida</string>
     <string name="bt_Mostrar_Datos">Ver Datos</string>
+
+    <!-- Seccion CodificadorMD5 -->
+    <string name="title_Codificador">Codificador MD5</string>
+    <string name="tv_PASS">Tu PASS</string>
+    <string name="tv_SALT">SALT</string>
+    <string name="tv_ResultadoMD5">Resultado MD5</string>
+    <string name="bt_Codificar">Codificar</string>
+
 </resources>

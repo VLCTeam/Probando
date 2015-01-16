@@ -12,20 +12,29 @@
     <string name="action_call">Call</string>
     <string name="action_checkout">Checkout</string>
     <string name="action_about">About...</string>
+    <string name="action_encode">Encode</string>
 
     <!-- Seccion MAIN -->
     <string name="tv_title">SafetyTest</string>
     <string name="tv_Saludo">APP For Private Testing</string>
 
     <!-- Seccion Settings -->
-    <string name="title_SETTINGS">Section Settings</string>
+    <string name="title_SETTINGS">Settings</string>
 
     <!-- Seccion About -->
-    <string name="title_ABOUT">Section About the Device</string>
+    <string name="title_ABOUT">About the Device</string>
     <string name="tv_EMPTY">--</string>
     <string name="tv_ID">ID</string>
     <string name="tv_USE_MAIL_GOOGLE">Google Account</string>
     <string name="tv_Version_Android">Android Version</string>
     <string name="error_Version_Android">Error - Unknown</string>
     <string name="bt_Mostrar_Datos">View Data</string>
+
+    <!-- Seccion CodificadorMD5 -->
+    <string name="title_Codificador">MD5 Encoder</string>
+    <string name="tv_PASS">Your PASS</string>
+    <string name="tv_SALT">SALT</string>
+    <string name="tv_ResultadoMD5">MD5 Result</string>
+    <string name="bt_Codificar">Encode</string>
+
 </resources>
