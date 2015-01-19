@@ -43,7 +43,7 @@
                 android:value="es.binarycode.probando.MainActivity" />
         </activity>
     </application>
-    <!-- Permisos de la APP
-    <uses-permission android:name="android.permission.INTERNET" />-->
+    <!-- Permisos de la APP -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
