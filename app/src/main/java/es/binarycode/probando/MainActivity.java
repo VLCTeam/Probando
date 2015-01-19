@@ -17,8 +17,8 @@ public class MainActivity extends Activity {
         /**
          * Declaracion de Objetos
          */
-        final TextView tv_Saludo = (TextView)findViewById(R.id.tv_Saludo);
-        final TextView tv_Version = (TextView)findViewById(R.id.tv_Version);
+        final TextView tv_Saludo = (TextView) findViewById(R.id.tv_Saludo);
+        final TextView tv_Version = (TextView) findViewById(R.id.tv_Version);
 
         /**
          * Variables
@@ -29,8 +29,7 @@ public class MainActivity extends Activity {
         /**
          * Otras Funciones
          */
-         tv_Version.setText(versionName);
-
+        tv_Version.setText(versionName);
 
 
     }
@@ -55,7 +54,7 @@ public class MainActivity extends Activity {
     /**
      * Se llama a este método cuando el usuario hace clic en una acción de la barra
      */
-         @Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -66,22 +65,21 @@ public class MainActivity extends Activity {
         if (id == R.id.action_settings) {
             /*Toast toast1 =Toast.makeText(getApplicationContext(),"Opciones", Toast.LENGTH_SHORT);
             toast1.show();*/
-           // public void lanzar(View view) {
-                Intent i = new Intent(this, SettingsActivity.class );
-                startActivity(i);
-           // }
+            // public void lanzar(View view) {
+            Intent i = new Intent(this, SettingsActivity.class);
+            startActivity(i);
+            // }
             return true;
         } else if (id == R.id.action_about) {
             /*Toast toast1 =Toast.makeText(getApplicationContext(),"Busqueda", Toast.LENGTH_SHORT);
             toast1.show();*/
-            Intent i = new Intent(this, AboutActivity.class );
+            Intent i = new Intent(this, AboutActivity.class);
             startActivity(i);
-                return true;
-            }
-        else if (id == R.id.action_codificador) {
+            return true;
+        } else if (id == R.id.action_codificador) {
             /*Toast toast1 =Toast.makeText(getApplicationContext(),"Codificador", Toast.LENGTH_SHORT);
             toast1.show();*/
-            Intent i = new Intent(this, CodificadorMD5.class );
+            Intent i = new Intent(this, CodificadorMD5.class);
             startActivity(i);
             return true;
         }

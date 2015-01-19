@@ -18,10 +18,10 @@ public class AboutActivity extends Activity {
         /**
          * Declaracion de Objetos
          */
-        final TextView tv_iID = (TextView)findViewById(R.id.tv_iID);
-        final TextView tv_iUGM = (TextView)findViewById(R.id.tv_iUGM);
-        final TextView tv_iAV = (TextView)findViewById(R.id.tv_iAV);
-        Button btn_MostrarDatos = (Button)findViewById(R.id.btn_MostrarDatos);
+        final TextView tv_iID = (TextView) findViewById(R.id.tv_iID);
+        final TextView tv_iUGM = (TextView) findViewById(R.id.tv_iUGM);
+        final TextView tv_iAV = (TextView) findViewById(R.id.tv_iAV);
+        Button btn_MostrarDatos = (Button) findViewById(R.id.btn_MostrarDatos);
         /**
          * Variables
          */
@@ -29,7 +29,7 @@ public class AboutActivity extends Activity {
                 Settings.Secure.ANDROID_ID);
         final String AndroidUGM = Settings.Secure.getString(getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS);
-        final Integer AndroidAPI =  Integer.valueOf(Build.VERSION.SDK);
+        final Integer AndroidAPI = Integer.valueOf(Build.VERSION.SDK);
         /**
          * Funciones de botones
          */
@@ -41,7 +41,7 @@ public class AboutActivity extends Activity {
                 /**
                  * Muestra la Version de Android
                  */
-                switch(AndroidAPI) {
+                switch (AndroidAPI) {
                     case 10:
                         tv_iAV.setText("Gingerbread - Android 2.3.3/2.3.7");
                         break;

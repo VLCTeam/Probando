@@ -20,12 +20,12 @@ public class CodificadorMD5 extends Activity {
         /**
          * Declaracion de Objetos
          */
-        final TextView tv_resultadoMD5 = (TextView)findViewById(R.id.tv_resultadoMD5);
-        final EditText et_pass = (EditText)findViewById(R.id.et_pass);
-        final EditText et_salt = (EditText)findViewById(R.id.et_salt);
-        Button btn_codificar = (Button)findViewById(R.id.btn_codificar);
+        final TextView tv_resultadoMD5 = (TextView) findViewById(R.id.tv_resultadoMD5);
+        final EditText et_pass = (EditText) findViewById(R.id.et_pass);
+        final EditText et_salt = (EditText) findViewById(R.id.et_salt);
+        Button btn_codificar = (Button) findViewById(R.id.btn_codificar);
 
-        btn_codificar.setOnClickListener(new View.OnClickListener(){
+        btn_codificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String passUser;
@@ -54,8 +54,7 @@ public class CodificadorMD5 extends Activity {
                 int u = b[i] & 255;
                 if (u < 16) {
                     h.append("0" + Integer.toHexString(u));
-                }
-                else {
+                } else {
                     h.append(Integer.toHexString(u));
                 }
             }
