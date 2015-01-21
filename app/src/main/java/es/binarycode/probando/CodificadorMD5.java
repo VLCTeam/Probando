@@ -34,7 +34,7 @@ public class CodificadorMD5 extends Activity {
                 passUser = String.valueOf(et_pass.getText());
                 saltUser = String.valueOf(et_salt.getText());
                 password_final = md5(passUser + saltUser);
-                tv_resultadoMD5.setText(password_final+":"+saltUser);
+                tv_resultadoMD5.setText(password_final + ":" + saltUser);
             }
         });
     }

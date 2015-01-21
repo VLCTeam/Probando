@@ -3,10 +3,14 @@ package es.binarycode.probando;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class AboutActivity extends Activity {
@@ -15,6 +19,15 @@ public class AboutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        /**
+         * Para versiones de Android superiores a la 2.3.7 necesitamos agregar estas lineas
+         * asi funcionara cualquier conexion exterior
+         */
+        if (android.os.Build.VERSION.SDK_INT > 10) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+        // FIN PROBANDO COSAS
         /**
          * Declaracion de Objetos
          */
@@ -37,7 +50,7 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 tv_iID.setText(AndroidId);//Muestra el ID del dispositivo
-                tv_iUGM.setText(AndroidUGM);//Muestra ALGO...
+                //tv_iUGM.setText(AndroidUGM);//Muestra ALGO...
                 /**
                  * Muestra la Version de Android
                  */
@@ -79,8 +92,46 @@ public class AboutActivity extends Activity {
                         tv_iAV.setText(R.string.error_Version_Android);
                         break;
                 }
+                /**
+                 * Consulta PHP
+                 */
+                tv_iUGM.setText(consultaPHP("Login","Paco Cubel"));
             }
         });
 
+    }
+
+    /**
+     * Funcion de para conectar con el PHP de prueba
+     * le ponemos el String delante del nombre de la funcion para decir que el "Return" devolvera
+     * un String
+     * Metemos "String Consulta" entre el parentesis para decir que debe recibir un string dicha funcion
+     */
+    public String consultaPHP(String consulta, String SQL) {
+        //Declaramos Variables
+        String respuesta = null;
+        ZBaseDatos conectBD = new ZBaseDatos(); //Creamos una variable conectBD con la clase "ZBaseDatos"
+        /**
+         * CADENA JSON
+         */
+        JSONObject cadena = new JSONObject(); //Creamos un objeto de tipo JSON
+
+        try {
+            cadena.put("consulta", consulta);//Le asignamos los datos que necesitemos
+            cadena.put("sql", SQL);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        cadena.toString(); //Para obtener la cadena de texto de tipo JSON
+
+
+        /**
+         * ENVIAMOS CONSULTA
+         */
+        // Enviamos la consulta y metemos lo recibido dentro de la variable respuesta
+        respuesta = conectBD.consultaSQL(cadena);
+        return respuesta;
     }
 }
