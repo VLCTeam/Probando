@@ -15,16 +15,23 @@ import org.json.JSONObject;
 /**
  * Created by cubel on 19/01/15.
  */
-public class ZBaseDatos {
-    public String consultaSQL(JSONObject JSON) {
-        Log.e("INFO", "Entra en SQL " + JSON);
-        String sb2 = null;
-        try {
-            /**
-             * CODIGO QUE TENIA EN LA APP DE ENFILA Y TALLA (HABRA QUE MEJORARLO)
-             */
 
-            // Crear un cliente por defecto
+/**
+ * Clase ZBaseDatos
+ * Esta clase se encarga de conectar con PHP
+ */
+public class ZBaseDatos {
+    /**
+     * Funcion de consultaSQL
+     *
+     * @param JSON
+     * @return (Un String temporalmente) Debera retornar un array o un JSON
+     */
+    public String consultaSQL(JSONObject JSON) {
+        Log.e("INFO", "Entra en SQL " + JSON);//Log para saber que llega el JSON
+        String sb2 = null;//String que se usa para hacer el return (de momento)
+        try {
+            // Crear un cliente para la conexion
             HttpClient mClient = new DefaultHttpClient();
             //Añadimos un parametro para que no tarde mas de los milisegundos indicados
             HttpConnectionParams.setConnectionTimeout(mClient.getParams(),
@@ -36,96 +43,30 @@ public class ZBaseDatos {
             // Indicar la URL de Conexion
             String URLConnect = new String("http://www.tracciona.es/nweb/appAndroid/app.php");
             //Hacemos varias comprobaciones
-            Log.e("URL:", URLConnect);
-            Log.e("JSON:", paqueteJSON.toString());
+            Log.e("URL:", URLConnect);//Para la consola
+            Log.e("JSON:", paqueteJSON.toString());//Para la consola
             // Establecer la conexion despues de indicar la url
             HttpPost mpost = new HttpPost(URLConnect);
-            //Preparamos el Envio del paquete por post
-            //StringEntity se = new StringEntity("JSON: "+paqueteJSON.toString());
+            //Preparamos el Envio del paquete por post (metemos el JSON en formato Texto
             StringEntity se = new StringEntity(paqueteJSON.toString());
-            se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
+            //Añadimos la cabecera para application/json
+            se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+            //Lo metemos en el paquete para enviar por post
             mpost.setEntity(se);
-            Log.e("SE",se.toString());
             //Enviamos el paquete
             response = mClient.execute(mpost);
-            //Log.e("Response", response.toString());
-            // Creamos el Objeto JSON (Que ya viene desde la funcion que lo llama)
-            // Post the data:
-           //// mpost.setHeader("json",JSON.toString());
-           //// mpost.getParams().setParameter("jsonpost",mpost);
-            ////StringEntity se = new StringEntity("json="+JSON.toString());
-           //// Log.e("INFO", "JSON" + JSON.toString());
-           //// mpost.addHeader("content-type", "application/x-www-form-urlencoded");
-            ////mpost.setEntity(se);
-           //// Log.e("INFO", "SE Entero: " + se);
-
-
-            // NameValuePair : Es una clase simple que encapsula el nombre del atributo y el valor que contiene.
-            // Creamos una lista de 2 atributos (Clave - Valor) (Esto no esta claro pero lo dejaremos asi)
-           /* List nameValuepairs = new ArrayList(2);
-            // Agregamos los elementos a la lista (Pasamos Nobre Variable para PHP y COnsulta SQL)
-            nameValuepairs.add(new BasicNameValuePair("SQL", SQL.toString()));
-            nameValuepairs.add(new BasicNameValuePair("Que", "Nombre2"));
-            nameValuepairs.add(new BasicNameValuePair("Nombre", "Pakito"));
-            nameValuepairs.add(new BasicNameValuePair("Edad", "25"));*/
-            /*
-            // UrlEncodedFormEntity : Codificamos la lista para el envio por post
-            mpost.setEntity(new UrlEncodedFormEntity(nameValuepairs));
-            // Ejecutamos la solicitud y obtenemos una respuesta
-            HttpResponse responce = mClient.execute(mpost);
-            //  Obtenemos el contenido de la respuesta
-            HttpEntity entity = responce.getEntity();
-            // Convertimos el stream a un String
-            BufferedReader buf = new BufferedReader(new InputStreamReader(entity.getContent()));
-            StringBuilder sb1 = new StringBuilder();
-            String line = null;
-            while ((line = buf.readLine()) != null) {
-                sb1.append(line + "\r\n");
-            }
-            ;
-            sb2 = sb1.toString();
-            */
-            /////Log.e("INFO", "Vamos a por la Respuesta");
             //Respuesta
-            /////HttpResponse response = mClient.execute(mpost);
             String resFromServer = org.apache.http.util.EntityUtils.toString(response.getEntity());
-            JSONObject jsonResponse=new JSONObject(resFromServer);
+            //Metemos la respuesta en un objeto JSON
+            JSONObject jsonResponse = new JSONObject(resFromServer);
+            //Del objeto JSON cogemos los datos (Esto es de forma temporal)
             Log.i("Response from server", jsonResponse.getString("consulta"));
-            // De prueba
+            // De prueba (Esto mete los dos datos del JSON en el string temporal para pruebas)
             sb2 = jsonResponse.getString("consulta") + " " + jsonResponse.getString("sql");
-            //Log.e("INFO", "RESPUESTA: " + sb2);
-            //Este if es para mostrar "x" dato pedido, o la cadena JSON entera
-            ////if (mostarJSON){ //Si no ponemos nada, como es una variable boolean se entiende que nos referimos a TRUE
-            //Esto es para cargar en una variable "SB2" la cadena de JSON entera
-            ////sb2 = sb1.toString();
-
-            ////} else {
-            //Modificaciones cubel
-            ////JSONArray jsonArray = new JSONArray(sb1.toString());
-            ////for (int i = 0; i < jsonArray.length(); i++) {
-            ////JSONObject jsonObject = jsonArray.getJSONObject(i);
-            //Aqui sacaremos los datos del Array en modo (Clave Valor) las Claves son los nombres pasados en la
-            //Cadena JSON
-            ////sb2 = "";
-            ////sb2 += jsonObject.getString("5");
-            //sb2 += "\nUser: ";
-            //sb2 += jsonObject.getString("user");
-            //sb2 += "\nMail: ";
-            //sb2 += jsonObject.getString("mail");
-            //sb2 += "\nPass (Cifrado): ";
-            //sb2 += jsonObject.getString("pass");
-            ////};
-            ////};
-
-
         } catch (Exception e) {
             //Si se produce un error, lo mostramos
             Log.w(" error ", e.toString());
         }
-        ;
-
-        return sb2;
+        return sb2; //Deberia devolver un array o un JSON (string temporalmente)
     }
-
-    ;
 }

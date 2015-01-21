@@ -94,8 +94,11 @@ public class AboutActivity extends Activity {
                 }
                 /**
                  * Consulta PHP
+                 * Necesita de dos parametros en String
+                 * 1 Que funciona hacer (dependera de las funciones disponibles en PHP
+                 * 2 Cadena SQL completa
                  */
-                tv_iUGM.setText(consultaPHP("Login","Paco Cubel"));
+                tv_iUGM.setText(consultaPHP("Login", "Paco Cubel"));
             }
         });
 
@@ -105,28 +108,22 @@ public class AboutActivity extends Activity {
      * Funcion de para conectar con el PHP de prueba
      * le ponemos el String delante del nombre de la funcion para decir que el "Return" devolvera
      * un String
-     * Metemos "String Consulta" entre el parentesis para decir que debe recibir un string dicha funcion
+     * Metemos "String Consulta" y "String SQL" entre el parentesis para decir que debe recibir
+     * dos string dicha funcion
      */
     public String consultaPHP(String consulta, String SQL) {
         //Declaramos Variables
         String respuesta = null;
         ZBaseDatos conectBD = new ZBaseDatos(); //Creamos una variable conectBD con la clase "ZBaseDatos"
-        /**
-         * CADENA JSON
-         */
         JSONObject cadena = new JSONObject(); //Creamos un objeto de tipo JSON
-
         try {
             cadena.put("consulta", consulta);//Le asignamos los datos que necesitemos
-            cadena.put("sql", SQL);
+            cadena.put("sql", SQL);//Le asignamos los datos que necesitemos
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         cadena.toString(); //Para obtener la cadena de texto de tipo JSON
-
-
         /**
          * ENVIAMOS CONSULTA
          */
