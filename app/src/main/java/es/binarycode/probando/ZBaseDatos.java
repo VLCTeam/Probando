@@ -91,6 +91,8 @@ public class ZBaseDatos {
             String resFromServer = org.apache.http.util.EntityUtils.toString(response.getEntity());
             JSONObject jsonResponse=new JSONObject(resFromServer);
             Log.i("Response from server", jsonResponse.getString("consulta"));
+            // De prueba
+            sb2 = jsonResponse.getString("consulta") + " " + jsonResponse.getString("sql");
             //Log.e("INFO", "RESPUESTA: " + sb2);
             //Este if es para mostrar "x" dato pedido, o la cadena JSON entera
             ////if (mostarJSON){ //Si no ponemos nada, como es una variable boolean se entiende que nos referimos a TRUE
