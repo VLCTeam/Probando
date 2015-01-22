@@ -7,4 +7,4 @@ las clases que no tienen Activity empiezan por "Z", de este modo siempre aparece
 el arbol de archivos.
 
 
-Funcionando con copias
+:)
