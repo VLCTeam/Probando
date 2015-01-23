@@ -98,7 +98,7 @@ public class AboutActivity extends Activity {
                  * 1 Que funciona hacer (dependera de las funciones disponibles en PHP
                  * 2 Cadena SQL completa
                  */
-                tv_iUGM.setText(consultaPHP("Login", "Paco Cubel"));
+                tv_iUGM.setText(consultaPHP("Prueba Servidor", String.valueOf(tv_iID.getText())));
             }
         });
 
