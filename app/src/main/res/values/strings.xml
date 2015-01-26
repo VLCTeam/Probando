@@ -13,6 +13,7 @@
     <string name="action_checkout">Checkout</string>
     <string name="action_about">About...</string>
     <string name="action_encode">Encode</string>
+    <string name="action_login">Login</string>
 
     <!-- Seccion MAIN -->
     <string name="tv_title">SafetyTest</string>
@@ -36,5 +37,11 @@
     <string name="tv_SALT">SALT</string>
     <string name="tv_ResultadoMD5">MD5 Result</string>
     <string name="bt_Codificar">Encode</string>
+
+    <!-- Seccion Login -->
+    <string name="title_Login">Login</string>
+    <string name="tv_User">User</string>
+    <string name="bt_Comprobar">Chech Data</string>
+    <string name="tv_User_Error">Incorrect User</string>
 
 </resources>

@@ -82,6 +82,10 @@ public class MainActivity extends Activity {
             Intent i = new Intent(this, CodificadorMD5.class);
             startActivity(i);
             return true;
+        } else if (id == R.id.action_login) {
+            Intent i = new Intent(this, Login.class);
+            startActivity(i);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

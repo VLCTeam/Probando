@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -111,14 +112,15 @@ public class AboutActivity extends Activity {
      * Metemos "String Consulta" y "String SQL" entre el parentesis para decir que debe recibir
      * dos string dicha funcion
      */
-    public String consultaPHP(String consulta, String SQL) {
+    public String consultaPHP(String tarea, String datos) {
         //Declaramos Variables
-        String respuesta = null;
+        JSONObject respuestaJSON = new JSONObject(); //Donde ira la respuesta
         ZBaseDatos conectBD = new ZBaseDatos(); //Creamos una variable conectBD con la clase "ZBaseDatos"
         JSONObject cadena = new JSONObject(); //Creamos un objeto de tipo JSON
+        String respuesta = new String();//Respuesta
         try {
-            cadena.put("consulta", consulta);//Le asignamos los datos que necesitemos
-            cadena.put("sql", SQL);//Le asignamos los datos que necesitemos
+            cadena.put("tarea", tarea);//Le asignamos los datos que necesitemos
+            cadena.put("datos", datos);//Le asignamos los datos que necesitemos
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -128,7 +130,15 @@ public class AboutActivity extends Activity {
          * ENVIAMOS CONSULTA
          */
         // Enviamos la consulta y metemos lo recibido dentro de la variable respuesta
-        respuesta = conectBD.consultaSQL(cadena);
+        respuestaJSON = conectBD.consultaSQL(cadena);
+        Log.e("JSON RECIBIDO:", respuestaJSON.toString());
+        try {
+            //En la siguiente linea cargamos el valor de las claves "tarea" y "datos" del JSON
+            respuesta = respuestaJSON.getString("tarea") + " - " + respuestaJSON.getString("datos");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            respuesta = "Error";
+        }
         return respuesta;
     }
 }

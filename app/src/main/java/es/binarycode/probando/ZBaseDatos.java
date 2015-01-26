@@ -27,9 +27,9 @@ public class ZBaseDatos {
      * @param JSON
      * @return (Un String temporalmente) Debera retornar un array o un JSON
      */
-    public String consultaSQL(JSONObject JSON) {
+    public JSONObject consultaSQL(JSONObject JSON) {
         Log.e("INFO", "Entra en SQL " + JSON);//Log para saber que llega el JSON
-        String sb2 = null;//String que se usa para hacer el return (de momento)
+        JSONObject jsonRespuesta = new JSONObject(); //Respuesta recibida
         try {
             // Crear un cliente para la conexion
             HttpClient mClient = new DefaultHttpClient();
@@ -59,15 +59,17 @@ public class ZBaseDatos {
             String resFromServer = org.apache.http.util.EntityUtils.toString(response.getEntity());
             //Metemos la respuesta en un objeto JSON
             JSONObject jsonResponse = new JSONObject(resFromServer);
+            jsonRespuesta = jsonResponse;
+            Log.e("RESPUESTA EN ZCLAS:", jsonRespuesta.toString());
             //Del objeto JSON cogemos los datos (Esto es de forma temporal)
             Log.i("Response from server", jsonResponse.getString("consulta"));
             // De prueba (Esto mete los dos datos del JSON en el string temporal para pruebas)
-            sb2 = jsonResponse.getString("consulta") + " " + jsonResponse.getString("sql");
+            //sb2 = jsonResponse.getString("consulta") + " " + jsonResponse.getString("sql");
         } catch (Exception e) {
             //Si se produce un error, lo mostramos
             Log.w(" error ", e.toString());
         }
-        Log.e("Return", sb2.toString());
-        return sb2; //Deberia devolver un array o un JSON (string temporalmente)
+        //Log.e("Return", sb2.toString());
+        return jsonRespuesta;
     }
 }
