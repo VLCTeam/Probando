@@ -36,5 +36,10 @@
     <string name="tv_SALT">SALT</string>
     <string name="tv_ResultadoMD5">Resultado MD5</string>
     <string name="bt_Codificar">Codificar</string>
+    <string name="bt_Comprobar">Comprobar Datos</string>
+    <string name="tv_User">Usuario</string>
+    <string name="tv_User_Error">Usuario Incorrecto</string>
+    <string name="title_Login">Login</string>
+    <string name="action_login">Login</string>
 
 </resources>
