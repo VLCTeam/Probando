@@ -9,14 +9,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="es.binarycode.probando.CodificadorMD5">
+    tools:context="es.binarycode.probando.PostLogin">
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:gravity="center_horizontal"
-        android:text="@string/title_Codificador"
+        android:text="@string/title_PostLogin"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -36,44 +36,63 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="@string/tv_PASS"
+                android:text="@string/tv_ID"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-
-            <EditText
-                android:id="@+id/et_pass"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_pID"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="20dp" />
-
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_EMPTY"
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="@string/tv_SALT"
+                android:text="@string/tv_nombre"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/et_salt"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_pnombre"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_EMPTY"
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="@string/tv_ResultadoMD5"
+                android:text="@string/tv_mail"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_resultadoMD5"
+                android:id="@+id/tv_pmail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_EMPTY"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/tv_nivelSeguridad"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pnivel"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -84,12 +103,12 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btn_codificar"
+        android:id="@+id/btn_MostrarDatos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_weight="0"
         android:gravity="center"
-        android:text="@string/bt_Codificar" />
+        android:text="@string/bt_Mostrar_Datos" />
 
 </LinearLayout>

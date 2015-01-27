@@ -44,4 +44,10 @@
     <string name="bt_Comprobar">Chech Data</string>
     <string name="tv_User_Error">Incorrect User</string>
 
+    <!-- Seccion PostLogin -->
+    <string name="title_PostLogin">Private Zone</string>
+    <string name="tv_nombre">Your Name</string>
+    <string name="tv_nivelSeguridad">Your Level Security</string>
+    <string name="tv_mail">Your Mail</string>
+
 </resources>
