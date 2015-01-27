@@ -1,6 +1,7 @@
 package es.binarycode.probando;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -38,12 +39,15 @@ public class Login extends Activity {
         /**
          * Funciones de Botones
          */
+        final Intent i = new Intent(this, PostLogin.class);//Esto lo ponemos aqui porque dentro del boton no funciona
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Nombre funcion recibira un True si es correcto o un false si no
                 if (comprobarUsuario(String.valueOf(et_user.getText()), String.valueOf(et_pass.getText()))) {
                     //cargar siguiente layout
+
+                    startActivity(i);
                 } else {
                     tv_respuesta.setText(R.string.tv_User_Error);
                 }
@@ -76,9 +80,27 @@ public class Login extends Activity {
         respuestaJSON = conectBD.consultaSQL(cadena);
         Log.e("DATOS RECIBIDOS:", respuestaJSON.toString());
         try {
+            //Ahora extraemos del JSON la parte "Respuesta" para saber si es un OK o un Error
             respuesta = respuestaJSON.getString("Respuesta");
             if (respuesta.equals("OK")) {
-                devovlerRespuesta = true;
+                //Si es un OK, llamaremos a las CLASES ZMD5 para hacer la comprobacion del Pass
+                ZMD5 md5 = new ZMD5();
+                //Tambien llamamos a la clase ZDatosTemporales para guardar los datos recibidos
+                ZDatosTemporales datosUsuario = new ZDatosTemporales();
+                if (md5.comprobarMD5(pass, respuestaJSON.getString("pass"))) {
+                    Log.e("PASS", "Correcto");
+                    //Al ser correcto el pass, metemos los datos en las variables de la clase ZDatosTemporales
+                    datosUsuario.setIdUser(Integer.parseInt(respuestaJSON.getString("id")));
+                    datosUsuario.setMailUser(respuestaJSON.getString("mail"));
+                    datosUsuario.setNivelUser(respuestaJSON.getString("nivel"));
+                    datosUsuario.setNombreUser(respuestaJSON.getString("nombre"));
+                    datosUsuario.setPassUser(respuestaJSON.getString("pass"));
+                    Log.e("NombreUSERCLASS", datosUsuario.getNombreUser());
+                    devovlerRespuesta = true;
+                } else {
+                    Log.e("PASS", "Incorrecto");
+                    devovlerRespuesta = false;
+                }
             } else {
                 devovlerRespuesta = false;
             }
