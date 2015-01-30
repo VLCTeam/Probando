@@ -47,8 +47,13 @@ public class ZMD5 {
     }
 
     public String generarMD5 (String pass){
-
-        return "MD5";
+        //Creamos una variable a la cual le metemos una cadena aleatoria generada por "generarSALT()"
+        String nsalt = generarSALT();
+        //mandamos al codificador MD5 la contraseña mas la cadena aleatoria
+        String codificado = codificadorMD5(pass + nsalt);
+        //Log.e("CODIFICADO GENERADO:",codificado);
+        //En la base de datos hay que guardar lo codificado:llaveCodificadora (lo que retorna deberia ir a la base de datos)
+        return codificado + ":" + nsalt;
     }
 
     public String codificadorMD5(String codificador) {
@@ -78,8 +83,22 @@ public class ZMD5 {
         return MD5Final;
     }
 
-    public String generarSALT (String pass){
-
-        return "MD5";
+    public String generarSALT() {
+        //Añadimos todos los caracteres que queremos para que genere la cadena aleatoria, cuantos mas, mas dificil sera de saltar
+        String caracteres[] = {"a", "b", "c", "d", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        //variable donde ira la cadena generada
+        String salt = new String();
+        //variable para el numero aleatorio
+        int numero;
+        //Esto se repetira 32 veces para sacar 32 caracteres aleatorios
+        for (int i = 0; i < 32; i++) {
+            //Generamos un numero aleatorio entre 0 y la longitud de la cadena -1
+            numero = (int) (Math.random() * caracteres.length - 1);
+            //el numero creado, sera el encargado de decir que caracter saldra,
+            salt = salt + caracteres[numero];
+            // Log.e("FOR",caracteres[numero]);
+        }
+        //Log.e("SALT GENERADO:",salt);
+        return salt;
     }
 }

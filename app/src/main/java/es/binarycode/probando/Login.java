@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.melnykov.fab.FloatingActionButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +35,7 @@ public class Login extends Activity {
         final TextView tv_respuesta = (TextView) findViewById(R.id.tv_respuesta);
         final EditText et_user = (EditText) findViewById(R.id.et_user);
         final EditText et_pass = (EditText) findViewById(R.id.et_pass);
-        final Button btn_login = (Button) findViewById(R.id.btn_login);
+        FloatingActionButton btn_login = (FloatingActionButton) findViewById(R.id.btn_login);
 
         /**
          * Funciones de Botones
@@ -51,8 +52,11 @@ public class Login extends Activity {
                 } else {
                     tv_respuesta.setText(R.string.tv_User_Error);
                 }
+                /*ZMD5 prueba = new ZMD5();
+                Log.e("Resultado MD5:",prueba.generarMD5("admin"));*/
             }
         });
+
     }
 
     /**
