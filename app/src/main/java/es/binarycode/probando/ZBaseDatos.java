@@ -41,7 +41,7 @@ public class ZBaseDatos {
             //Creamos un objeto JSON que vendra con el llamamiento de la funcion
             JSONObject paqueteJSON = JSON;
             // Indicar la URL de Conexion
-            String URLConnect = new String("http://www.enfilaitalla.es/VLCTeam/PW/euromillon/appAndroid/app.php");
+            String URLConnect = new String("http://www.ateneasystems.es/PW/Euromillones/appAndroid/app.php");
             //Hacemos varias comprobaciones
             Log.e("URL:", URLConnect);//Para la consola
             Log.e("JSON:", paqueteJSON.toString());//Para la consola
