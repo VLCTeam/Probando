@@ -86,7 +86,7 @@ public class Login extends Activity {
                 //Si es un OK, llamaremos a las CLASES ZMD5 para hacer la comprobacion del Pass
                 ZMD5 md5 = new ZMD5();
                 //Tambien llamamos a la clase ZDatosTemporales para guardar los datos recibidos
-                ZDatosTemporales datosUsuario = new ZDatosTemporales();
+                ZDatosTemporales datosUsuario = (ZDatosTemporales) getApplicationContext();
                 if (md5.comprobarMD5(pass, respuestaJSON.getString("pass"))) {
                     Log.e("PASS", "Correcto");
                     //Al ser correcto el pass, metemos los datos en las variables de la clase ZDatosTemporales
@@ -95,7 +95,6 @@ public class Login extends Activity {
                     datosUsuario.setNivelUser(respuestaJSON.getString("nivel"));
                     datosUsuario.setNombreUser(respuestaJSON.getString("nombre"));
                     datosUsuario.setPassUser(respuestaJSON.getString("pass"));
-                    Log.e("NombreUSERCLASS", datosUsuario.getNombreUser());
                     devovlerRespuesta = true;
                 } else {
                     Log.e("PASS", "Incorrecto");

@@ -27,8 +27,8 @@ public class PostLogin extends Activity {
         btn_MostrarDatos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ZDatosTemporales DU = new ZDatosTemporales();
-                //tv_pID.setText(DU.getIdUser());
+                ZDatosTemporales DU = (ZDatosTemporales) getApplicationContext();
+                tv_pID.setText(DU.getIdUser());
                 tv_pnombre.setText(DU.getNombreUser());
                 tv_pmail.setText(DU.getMailUser());
                 tv_pnivel.setText(DU.getNivelUser());

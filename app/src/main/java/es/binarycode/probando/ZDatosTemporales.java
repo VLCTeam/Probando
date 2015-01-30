@@ -1,9 +1,11 @@
 package es.binarycode.probando;
 
+import android.app.Application;
+
 /**
  * Created by cubel on 26/01/15.
  */
-public class ZDatosTemporales {
+public class ZDatosTemporales extends Application {
     /**
      * Declaracion de Variables Temporales
      */
@@ -16,8 +18,8 @@ public class ZDatosTemporales {
     /**
      * Funciones para recuperar los datos
      */
-    public int getIdUser() {
-        return idUser;
+    public String getIdUser() {
+        return String.valueOf(idUser);
     }
 
     public String getNombreUser() {
