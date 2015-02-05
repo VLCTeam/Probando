@@ -1,7 +1,7 @@
 package es.binarycode.probando;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,7 +11,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
-public class CodificadorMD5 extends Activity {
+public class CodificadorMD5 extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -45,5 +45,9 @@
     <string name="tv_mail">Tu Mail</string>
     <string name="tv_nivelSeguridad">Tu Nivel de Seguridad</string>
     <string name="tv_nombre">Tu Nombre</string>
+    <string name="drawer_open">Abierto</string>
+    <string name="drawer_close">Cerrado</string>
+    <string name="title_activity_fpost_login">FPostLogin</string>
+    <string name="title_activity_prueba">Prueba</string>
 
 </resources>
