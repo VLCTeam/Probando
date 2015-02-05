@@ -1,9 +1,9 @@
 package es.binarycode.probando;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class Login extends Activity {
+public class Login extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

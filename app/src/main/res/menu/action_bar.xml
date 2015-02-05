@@ -1,22 +1,24 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:menuCubel="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="109"
-        android:showAsAction="never"
+        menuCubel:showAsAction="never"
         android:title="@string/action_settings" />
     <item
         android:id="@+id/action_about"
         android:orderInCategory="110"
-        android:showAsAction="never"
+        menuCubel:showAsAction="never"
         android:title="@string/action_about" />
     <item
         android:id="@+id/action_codificador"
         android:orderInCategory="100"
-        android:showAsAction="never"
+        menuCubel:showAsAction="never"
         android:title="@string/action_encode" />
     <item
         android:id="@+id/action_login"
+        android:icon="@drawable/ic_aceptar"
         android:orderInCategory="101"
-        android:showAsAction="never"
+        menuCubel:showAsAction="ifRoom"
         android:title="@string/action_login" />
 </menu>
